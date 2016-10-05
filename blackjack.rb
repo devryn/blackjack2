@@ -79,10 +79,6 @@ puts "Would you like to hit or stay?"
 response = gets.chomp.downcase
   if response == "hit" || response == "h"
     player_card.push deck.draw
-      player_card.each do |card|
-      puts "#{card.value} of #{card.suit.capitalize}"
-      puts sum_hand(player_card)
-      end
     elsif response == "stay"
       player_card.each do |card|
       puts "Your hand is #{card.value} of #{card.suit}"
