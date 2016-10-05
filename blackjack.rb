@@ -74,26 +74,24 @@ def run
   end
 puts "#{sum_hand(player_card)} total"
 
-
-puts "Would you like to hit or stay?"
-response = gets.chomp.downcase
-  if response == "hit" || response == "h"
-    player_card.push deck.draw
-    elsif response == "stay"
+  if sum_hand(player_card) == 21
+    puts "Blackjack!"
+  elsif sum_hand(player_card) > 21
+    puts "Bust!"
+  else
+    puts "Would you like to hit or stay?"
+    response = gets.chomp.downcase
+    if response == "hit" || response == "h"
+      player_card.push deck.draw
+    elsif response == "stay" || response == "s"
       player_card.each do |card|
       puts "Your hand is #{card.value} of #{card.suit}"
       end
+    end
 
   end
   puts sum_hand(player_card)
-  if sum_hand(player_card) > 21
-    puts "Bust!"
-  elsif sum_hand(player_card) == 21
-    puts "You win!"
-  else
-    run
 
-  end
 end
 
 
