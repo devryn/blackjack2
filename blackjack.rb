@@ -68,29 +68,30 @@ def run
 
   player_card.push deck.draw
   computer_card.push deck.draw
-end
+  
 
   player_card.each do |card|
     puts "#{card.value} of #{card.suit.capitalize}"
   end
 puts "#{sum_hand(player_card)} total"
 
-if sum_hand(player_card) == 21
-  puts "Blackjack!"
-elsif sum_hand(player_card) > 21
-  puts "Bust!"
-else
-  puts "Would you like to hit or stay?"
-  response = gets.chomp.downcase
-  if response == "hit" || response == "h"
-    player_card.push deck.draw
-    run
-  elsif response == "stay" || response == "s"
-    player_card.each do |card|
-    puts "Your hand is #{card.value} of #{card.suit}"
+  if sum_hand(player_card) == 21
+    puts "Blackjack!"
+  elsif sum_hand(player_card) > 21
+    puts "Bust!"
+  else
+    puts "Would you like to hit or stay?"
+    response = gets.chomp.downcase
+    if response == "hit" || response == "h"
+      player_card.push deck.draw
+      run
+    elsif response == "stay" || response == "s"
+      player_card.each do |card|
+      puts "Your hand is #{card.value} of #{card.suit}"
+      end
     end
-  end
 
+  end
   puts sum_hand(player_card)
 
 end
