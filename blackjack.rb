@@ -28,12 +28,7 @@ end
 
 
 
-class Hand
-  def new_hand
-    deck = Deck.new
-    deck.shuffle
-  end
-end
+
 
 
 class Player
