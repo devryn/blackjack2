@@ -14,10 +14,12 @@ end
 class Deck
   def initialize
     @cards = []
+  end
+  def make_deck
     suits = [:hearts, :diamonds, :spades, :clubs]
     suits.each do |suit|
       (2..14).each do |value|
-        @cards.push(Cards.new(suit, value))
+        @cards.push(Card.new(suit, value))
       end
     end
   end
