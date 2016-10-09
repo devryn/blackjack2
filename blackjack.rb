@@ -1,13 +1,8 @@
-class Card
+class Cards
   attr_reader :suit, :value
-
   def initialize(suit,value)
     @suit = suit
     @value = value
-  end
-
-  def display_card
-    "#{@value} of #{@suit}"
   end
 end
 
@@ -19,27 +14,15 @@ class Deck
     suits = [:hearts, :diamonds, :spades, :clubs]
     suits.each do |suit|
       (2..14).each do |value|
-        @cards.push(Card.new(suit, value))
+        @cards.push(Cards.new(suit, value))
       end
     end
   end
-
-  def count
-    @cards.count
-  end
-
   def shuffle
     @cards.shuffle!
   end
-
   def draw
-    @cards.shift.display_card
-  end
-
-  def display_deck
-    @cards.map do |card|
-      card.display_card
-    end
+    @cards.shift
   end
 end
 
@@ -86,14 +69,10 @@ def run
   player_card.push deck.draw
   computer_card.push deck.draw
 
+
   player_card.each do |card|
-    player_card << card
     puts "#{card.value} of #{card.suit.capitalize}"
   end
-
-
-
-
 puts "#{sum_hand(player_card)} total"
 
   if sum_hand(player_card) == 21
