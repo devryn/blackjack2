@@ -29,7 +29,7 @@ end
 
 
 class Hand
-  def run
+  def new_hand
     deck = Deck.new
     deck.shuffle
   end
