@@ -56,4 +56,8 @@ class Dealer
 end
 
 class Game
+  def get_player_move
+    puts '(h)it or (s)tay?'
+    player_move = gets.chomp.downcase
+  end
 end
