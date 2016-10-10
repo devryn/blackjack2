@@ -66,5 +66,15 @@ class Game
       player.add_to_hand(deck.deal_card)
       dealer.add_to_hand(deck.deal_card)
     end
+
+    puts 'Your hand:'
+    player.cards_in_hand.each do |card|
+      card
+    end
+
+    puts 'Dealer hand:'
+    dealer.cards_in_hand.each do |card|
+      card
+    end
   end
 end
