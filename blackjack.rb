@@ -40,3 +40,11 @@ def display_deck
     card.display_card
   end
 end
+
+class Hand
+  attr_accessor :cards_in_hand
+
+  def initialize
+    @cards_in_hand = []
+  end
+end
