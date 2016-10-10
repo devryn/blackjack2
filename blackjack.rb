@@ -50,14 +50,21 @@ class Hand
 end
 
 class Player
+  player = Hand.new
 end
 
 class Dealer
+  dealer = Hand.new
 end
 
 class Game
   def get_player_move
     puts '(h)it or (s)tay?'
     player_move = gets.chomp.downcase
+  end
+
+  def run
+    deck = Deck.new
+    deck.shuffle
   end
 end
