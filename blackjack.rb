@@ -48,3 +48,12 @@ class Hand
     @cards_in_hand = []
   end
 end
+
+class Player
+end
+
+class Dealer
+end
+
+class Game
+end
