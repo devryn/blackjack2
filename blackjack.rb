@@ -49,14 +49,6 @@ class Hand
   end
 end
 
-class Player
-  player = Hand.new
-end
-
-class Dealer
-  dealer = Hand.new
-end
-
 class Game
   def get_player_move
     puts '(h)it or (s)tay?'
@@ -66,5 +58,13 @@ class Game
   def run
     deck = Deck.new
     deck.shuffle
+
+    player = Hand.new
+    dealer = Hand.new
+
+    2.times do
+      player.add_to_hand(deck.deal_card)
+      dealer.add_to_hand(deck.deal_card)
+    end
   end
 end
