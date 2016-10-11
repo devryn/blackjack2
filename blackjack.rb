@@ -73,8 +73,7 @@ class Game
     end
 
     puts 'Dealer hand:'
-    dealer.cards_in_hand.each do |card|
-      card
-    end
+    puts 'Unknown'
+    dealer.cards_in_hand[1]
   end
 end
