@@ -77,3 +77,19 @@ class Game
     dealer.cards_in_hand[1]
   end
 end
+
+puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play? y/n/q"
+  play = gets.chomp.downcase
+
+  if play == "yes" || "y"
+    run
+  elsif play == "no" || "n"
+    puts "Sorry to hear that. Come back when you want to play!"
+  else
+    puts "Kate's Jacked Game of Blackjack doesn't understand. Please enter (y)es or (n)o or q to quit."
+  end
+
+loop do
+  puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play?"
+
+end
