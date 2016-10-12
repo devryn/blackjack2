@@ -51,6 +51,20 @@ class Hand
   def add_to_hand(dealt_card)
     @cards_in_hand.push(dealt_card)
   end
+
+  def calc_total
+    total = 0
+    @cards_in_hand.map do |card|
+      if card.to_i > 10
+        if card.to_i == 14
+          card = 11
+        else card.to_i = 10
+        end
+      end
+      total += card.to_i
+    end
+    total
+  end
 end
 
 class Game
@@ -79,6 +93,7 @@ class Game
     puts 'Dealer hand:'
     puts 'Unknown'
     dealer.cards_in_hand[1]
+    puts "Player total: #{player.calc_total}"
   end
 end
 
