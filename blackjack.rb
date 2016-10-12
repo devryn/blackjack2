@@ -21,23 +21,23 @@ class Deck
       end
     end
   end
-end
 
-def count
-  @cards.count
-end
+  def count
+    @cards.count
+  end
 
-def shuffle
-  @cards.shuffle
-end
+  def shuffle
+    @cards.shuffle
+  end
 
-def deal
-  @cards.shift.display_card
-end
+  def deal
+    @cards.shift.display_card
+  end
 
-def display_deck
-  @cards.map do |card|
-    card.display_card
+  def display_deck
+    @cards.map do |card|
+      card.display_card
+    end
   end
 end
 
@@ -46,6 +46,10 @@ class Hand
 
   def initialize
     @cards_in_hand = []
+  end
+
+  def add_to_hand(dealt_card)
+    @cards_in_hand.push(dealt_card)
   end
 end
 
@@ -63,8 +67,8 @@ class Game
     dealer = Hand.new
 
     2.times do
-      player.add_to_hand(deck.deal_card)
-      dealer.add_to_hand(deck.deal_card)
+      player.add_to_hand(deck.deal)
+      dealer.add_to_hand(deck.deal)
     end
 
     puts 'Your hand:'
@@ -79,17 +83,17 @@ class Game
 end
 
 puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play? y/n/q"
-  play = gets.chomp.downcase
+  user_play = gets.chomp.downcase
 
-  if play == "yes" || "y"
-    run
-  elsif play == "no" || "n"
+  if user_play == "yes" || user_play == "y"
+    Game.new.run
+  elsif user_play == "no" || user_play == "n"
     puts "Sorry to hear that. Come back when you want to play!"
   else
     puts "Kate's Jacked Game of Blackjack doesn't understand. Please enter (y)es or (n)o or q to quit."
   end
 
 loop do
-  puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play?"
+
 
 end
