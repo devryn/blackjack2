@@ -73,6 +73,22 @@ class Game
     player_move = gets.chomp.downcase
   end
 
+  def card_corrector(card)
+    if card[0..1].to_i > 10
+      card_strings = card.split
+      if card_strings[0] == "11"
+        card_strings[0] = "J"
+      elsif card_strings[0] == "12"
+        card_strings[0] = "Q"
+      elsif card_strings[0] == "13"
+        card_strings[0] = "K"
+      else card_strings[0] = "A"
+      end
+      card = card_strings.join(" ")
+    end
+    puts card
+  end
+
   def run
     deck = Deck.new
     deck.shuffle
@@ -87,12 +103,12 @@ class Game
 
     puts 'Your hand:'
     player.cards_in_hand.each do |card|
-      card
+      card_corrector(card)
     end
 
     puts 'Dealer hand:'
     puts 'Unknown'
-    dealer.cards_in_hand[1]
+    card_corrector(dealer.cards_in_hand[1])
     puts "Player total: #{player.calc_total}"
   end
 end
