@@ -122,6 +122,15 @@ puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play? y/n/q"
 
 loop do
   puts '(h)it or (s)tay?'
-  gets.chomp.downcase
+  player_input = gets.chomp.downcase
+
+  if player_input == 'q'
+    break
+  elsif player_input.downcase == 'hit' || player_input.downcase == 'h'
+    player.add_to_hand(deck.deal)
+  elsif player_input.downcase == 'stay' || player_input.downcase == 's'
+    puts 'Player stays'
+    break
+  end
 
 end
