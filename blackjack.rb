@@ -68,10 +68,6 @@ class Hand
 end
 
 class Game
-  def get_player_move
-    puts '(h)it or (s)tay?'
-    gets.chomp.downcase
-  end
 
   def card_corrector(card)
     if card[0..1].to_i > 10
@@ -110,7 +106,6 @@ class Game
     puts 'Unknown'
     card_corrector(dealer.cards_in_hand[1])
     puts "Player total: #{player.calc_total}"
-    get_player_move
   end
 end
 
@@ -126,6 +121,7 @@ puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play? y/n/q"
   end
 
 loop do
-
+  puts '(h)it or (s)tay?'
+  gets.chomp.downcase
 
 end
