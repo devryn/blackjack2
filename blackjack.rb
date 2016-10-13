@@ -70,7 +70,7 @@ end
 class Game
   def get_player_move
     puts '(h)it or (s)tay?'
-    player_move = gets.chomp.downcase
+    gets.chomp.downcase
   end
 
   def card_corrector(card)
@@ -110,6 +110,7 @@ class Game
     puts 'Unknown'
     card_corrector(dealer.cards_in_hand[1])
     puts "Player total: #{player.calc_total}"
+    get_player_move
   end
 end
 
