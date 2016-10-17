@@ -139,7 +139,14 @@ class Game
           else
             puts "I don't understand. Do you want to (h)it or (s)tay?"
           end
+        elsif player.calc_total == 21
+          puts "Blackjack! You win!"
+          break
+        else
+          puts "Bust! Dealer wins this one."
+          break
         end
+        puts "Player's total: #{player.calc_total}"
       end
     end
 
