@@ -110,6 +110,40 @@ class Game
     puts 'Unknown'
     card_corrector(dealer.cards_in_hand[1])
     puts "Player total: #{player.calc_total}"
+
+    if player.calc_total == 21
+      puts "You got a blackjack! Congrats."
+      player.cards_in_hand.each do |card|
+        card_corrector(card)
+      end
+    elsif player.calc_total > 21
+      puts "Bust! Dealer automajically wins."
+    elsif dealer.calc_total == 21
+      puts "Dealer got a blackjack! Tough luck."
+    elsif dealer.calc_total > 21
+      puts "Dealer busts. You got lucky this time!"
+    else
+      loop_break = false
+      loop do
+        if loop_break
+          break
+        elsif player.calc_total < 21
+          hit_or_stay = get_player_input
+          if hit_or_stay == "h" || hit_or_stay == "hit"
+            puts "Hit:"
+            player.add_to_hand(deck.deal)
+            puts card_corrector(player.cards_in_hand.last)
+          elsif hit_or_stay == "s" || hit_or_stay == "stay"
+            puts "Stay. Wise choice."
+            loop_break = true
+          else
+            puts "I don't understand. Do you want to (h)it or (s)tay?"
+          end
+        end
+      end
+    end
+
+
   end
 end
 
