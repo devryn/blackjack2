@@ -7,7 +7,7 @@ class Card
   end
 
   def display_card
-    "#{@value} of #{suit}"
+    "#{@value} of #{@suit}"
   end
 end
 
@@ -68,6 +68,10 @@ class Hand
 end
 
 class Game
+  def get_player_input
+    puts "(h)it or (s)tay?"
+    player_input = gets.chomp.downcase
+  end
 
   def card_corrector(card)
     if card[0..1].to_i > 10
