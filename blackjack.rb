@@ -148,6 +148,24 @@ class Game
         end
         puts "Player's total: #{player.calc_total}"
       end
+      if player.calc_total < 21
+        loop do
+          if dealer.calc_total == 21
+            puts "Dealer has a blackjack! You lose."
+            break
+          elsif dealer.calc_total < 16
+            dealer. add_to_hand(deck.deal)
+            puts "Dealer hits"
+            puts card_corrector(dealer.cards_in_hand.last)
+          elsif dealer.calc_total < 21
+            puts "Dealer stays"
+            break
+          else
+            puts "Dealer busts. You win!"
+            break
+          end
+        end
+      end
     end
 
 
