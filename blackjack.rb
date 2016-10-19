@@ -206,6 +206,7 @@ loop do
   user_play = gets.chomp.downcase
 
   if user_play == "yes" || user_play == "y"
+    system('clear')
     Game.new.run
   elsif user_play == "no" || user_play == "n"
     if looped
