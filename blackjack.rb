@@ -187,11 +187,10 @@ class Game
         end
       end
     end
-
-
   end
 end
 
+system('clear')
 puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play? y/n/q"
   user_play = gets.chomp.downcase
 
