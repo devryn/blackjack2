@@ -133,15 +133,14 @@ class Game
         if loop_break
           break
         elsif player.calc_total < 21
-          hit_or_stay = get_player_input
-          if hit_or_stay == "h" || hit_or_stay == "hit"
+          if get_player_input == "h" || get_player_input == "hit"
             puts "Hit:"
             player.add_to_hand(deck.deal)
             puts card_corrector(player.cards_in_hand.last)
-          elsif hit_or_stay == "s" || hit_or_stay == "stay"
+          elsif get_player_input == "s" || get_player_input == "stay"
             puts "Stay. Wise choice."
             loop_break = true
-          elsif hit_or_stay == "q" || hit_or_stay == "quit"
+          elsif get_player_input == "q" || get_player_input == "quit"
             break
           else
             puts "I don't understand. Do you want to (h)it or (s)tay?"
