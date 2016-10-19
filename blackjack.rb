@@ -192,7 +192,15 @@ end
 
 system('clear')
 puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play? y/n/q"
-  user_play = gets.chomp.downcase
+looped = false
+
+loop do
+  if looped
+    puts "Play again? y/n"
+  end
+
+puts "Please type either (y)es or (n)o"
+user_play = gets.chomp.downcase
 
   if user_play == "yes" || user_play == "y"
     Game.new.run
@@ -202,11 +210,6 @@ puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play? y/n/q"
     puts "Kate's Jacked Game of Blackjack doesn't understand. Please enter (y)es or (n)o or q to quit."
   end
   looped = false
-
-  loop do
-    if looped
-      puts "Play again? y/n"
-    end
 
     user_input = gets.chomp.downcase
     if user_input == "y"
