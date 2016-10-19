@@ -70,7 +70,7 @@ end
 class Game
   def get_player_input
     puts "(h)it or (s)tay?"
-    player_input = gets.chomp.downcase
+    gets.chomp.downcase
   end
 
   def card_corrector(card)
@@ -191,7 +191,7 @@ class Game
 end
 
 system('clear')
-puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play? y/n/q"
+puts "Welcome to Kate's Jacked Game of Blackjack! Would you like to play?"
 looped = false
 
 loop do
@@ -202,26 +202,26 @@ loop do
 puts "Please type either (y)es or (n)o"
 user_play = gets.chomp.downcase
 
-  if user_play == "yes" || user_play == "y"
-    Game.new.run
-  elsif user_play == "no" || user_play == "n"
-    puts "Sorry to hear that. Come back when you want to play!"
-  else
-    puts "Kate's Jacked Game of Blackjack doesn't understand. Please enter (y)es or (n)o or q to quit."
-  end
-  looped = false
+if user_play == "yes" || user_play == "y"
+  Game.new.run
+elsif user_play == "no" || user_play == "n"
+  puts "Sorry to hear that. Come back when you want to play!"
+else
+  puts "Kate's Jacked Game of Blackjack doesn't understand. Please enter (y)es or (n)o or q to quit."
+end
+looped = false
 
-    user_input = gets.chomp.downcase
-    if user_input == "y"
-      puts "Here we go again!"
-      Game.new.play
-    elsif user_input == "n"
-      if looped
-        puts "I know I'll be seeing you again soon!"
-      else
-        puts "Come back if you think you've got what it takes!"
-      end
-      break
+  user_input = gets.chomp.downcase
+  if user_input == "y"
+    puts "Here we go again!"
+    Game.new.play
+  elsif user_input == "n"
+    if looped
+      puts "I know I'll be seeing you again soon!"
+    else
+      puts "Come back if you think you've got what it takes!"
     end
-    looped = true
+    break
   end
+  looped = true
+end
