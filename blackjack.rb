@@ -180,8 +180,10 @@ class Game
       if dealer.calc_total < 21 && player.calc_total < 21
         if player.calc_total <= dealer.calc_total
           puts "Dealer's hand is higher. You lose!"
-        else
+        elsif player.calc_total > dealer.calc_total
           puts "Your hand wins!"
+        else
+          puts "Bust! You both lose!"
         end
       end
     end
