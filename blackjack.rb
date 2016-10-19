@@ -176,6 +176,14 @@ class Game
       dealer.cards_in_hand.each do |card|
         card_corrector(card)
       end
+
+      if dealer.calc_total < 21 && player.calc_total < 21
+        if player.calc_total <= dealer.calc_total
+          puts "Dealer's hand is higher. You lose!"
+        else
+          puts "Your hand wins!"
+        end
+      end
     end
 
 
