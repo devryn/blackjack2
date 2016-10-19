@@ -174,12 +174,14 @@ class Game
         end
       end
 
+      puts
       puts "Player's hand:"
       player.cards_in_hand.each do |card|
         card_corrector(card)
       end
       player.calc_total
 
+      puts
       puts "Dealer's hand:"
       dealer.cards_in_hand.each do |card|
         card_corrector(card)
@@ -205,7 +207,8 @@ looped = false
 
 loop do
   if looped
-    puts "Play again? y/n"
+    puts
+    puts "Play again?"
   end
 
   puts "Please type either (y)es or (n)o"
