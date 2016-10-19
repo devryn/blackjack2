@@ -27,7 +27,7 @@ class Deck
   end
 
   def shuffle
-    @cards.shuffle
+    @cards.shuffle!
   end
 
   def deal
@@ -58,7 +58,7 @@ class Hand
       if card.to_i > 10
         if card.to_i == 14
           card = 11
-        else card.to_i = 10
+        else card.to_i == 10
         end
       end
       total += card.to_i
