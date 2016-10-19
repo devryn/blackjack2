@@ -141,6 +141,8 @@ class Game
           elsif hit_or_stay == "s" || hit_or_stay == "stay"
             puts "Stay. Wise choice."
             loop_break = true
+          elsif hit_or_stay == "q" || hit_or_stay == "quit"
+            break
           else
             puts "I don't understand. Do you want to (h)it or (s)tay?"
           end
@@ -211,7 +213,7 @@ loop do
     puts "Play again?"
   end
 
-  puts "Please type either (y)es or (n)o"
+  puts "Please type either (y)es or (n)o or (q) to quit"
   user_play = gets.chomp.downcase
 
   if user_play == "yes" || user_play == "y"
@@ -223,6 +225,8 @@ loop do
     else
       puts "Come back when you want to lose again!"
     end
+    break
+  elsif user_play == "quit" || user_play == "q"
     break
   else
     puts "Kate's Jacked Game of Blackjack doesn't understand. Please enter (y)es or (n)o or q to quit."
