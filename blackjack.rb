@@ -166,6 +166,16 @@ class Game
           end
         end
       end
+
+      puts "Player's hand:"
+      player.cards_in_hand.each do |card|
+        card_corrector(card)
+      end
+
+      puts "Dealer's hand:"
+      dealer.cards_in_hand.each do |card|
+        card_corrector(card)
+      end
     end
 
 
