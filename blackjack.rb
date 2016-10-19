@@ -148,13 +148,14 @@ class Game
         end
         puts "Player's total: #{player.calc_total}"
       end
+
       if player.calc_total < 21
         loop do
           if dealer.calc_total == 21
             puts "Dealer has a blackjack! You lose."
             break
           elsif dealer.calc_total < 16
-            dealer. add_to_hand(deck.deal)
+            dealer.add_to_hand(deck.deal)
             puts "Dealer hits"
             puts card_corrector(dealer.cards_in_hand.last)
           elsif dealer.calc_total < 21
@@ -171,11 +172,13 @@ class Game
       player.cards_in_hand.each do |card|
         card_corrector(card)
       end
+      player.calc_total
 
       puts "Dealer's hand:"
       dealer.cards_in_hand.each do |card|
         card_corrector(card)
       end
+      dealer.calc_total
 
       if dealer.calc_total < 21 && player.calc_total < 21
         if player.calc_total <= dealer.calc_total
@@ -199,29 +202,20 @@ loop do
     puts "Play again? y/n"
   end
 
-puts "Please type either (y)es or (n)o"
-user_play = gets.chomp.downcase
+  puts "Please type either (y)es or (n)o"
+  user_play = gets.chomp.downcase
 
-if user_play == "yes" || user_play == "y"
-  Game.new.run
-elsif user_play == "no" || user_play == "n"
-  puts "Sorry to hear that. Come back when you want to play!"
-else
-  puts "Kate's Jacked Game of Blackjack doesn't understand. Please enter (y)es or (n)o or q to quit."
-end
-looped = false
-
-  user_input = gets.chomp.downcase
-  if user_input == "y"
-    puts "Here we go again!"
-    Game.new.play
-  elsif user_input == "n"
+  if user_play == "yes" || user_play == "y"
+    Game.new.run
+  elsif user_play == "no" || user_play == "n"
     if looped
-      puts "I know I'll be seeing you again soon!"
+      puts "Sorry to hear that. Come back when you want to play!"
     else
-      puts "Come back if you think you've got what it takes!"
+      puts "Come back when you want to lose again!"
     end
     break
+  else
+    puts "Kate's Jacked Game of Blackjack doesn't understand. Please enter (y)es or (n)o or q to quit."
   end
   looped = true
 end
