@@ -70,6 +70,7 @@ end
 class Game
   def get_player_input
     puts "(h)it or (s)tay?"
+    puts
     gets.chomp.downcase
   end
 
@@ -106,10 +107,14 @@ class Game
       card_corrector(card)
     end
 
+    puts
     puts 'Dealer hand:'
     puts 'Unknown'
     card_corrector(dealer.cards_in_hand[1])
+
+    puts
     puts "Player total: #{player.calc_total}"
+    puts
 
     if player.calc_total == 21
       puts "You got a blackjack! Congrats."
@@ -147,6 +152,7 @@ class Game
           break
         end
         puts "Player's total: #{player.calc_total}"
+        puts
       end
 
       if player.calc_total < 21
